@@ -499,7 +499,7 @@ endif;
 							Nhà hàng của chúng tôi là một trong những nhà hàng tốt nhất, cung cấp thực đơn và món ăn ngon. Bạn có thể đặt bàn hoặc gọi món.
 						</p>
 						<ul class="widget_social">
-							<li><?php echo social_media_icon('facebook', '#', 'Facebook'); ?></li>
+							<li><?php echo social_media_icon('facebook', 'https://www.facebook.com/profile.php?id=61577136436567', 'Facebook'); ?></li>
 							<li><?php echo social_media_icon('twitter', '#', 'Twitter'); ?></li>
 							<li><?php echo social_media_icon('instagram', '#', 'Instagram'); ?></li>
 							<li><?php echo social_media_icon('linkedin', '#', 'LinkedIn'); ?></li>

@@ -327,7 +327,7 @@ endif;
 														<?php echo $menu['menu_description']; ?>
 													</p>
 													<span class='menu_price'>
-														<?php echo number_format(intval($menu['menu_price']), 0, ',', '.') . "000đ"; ?>
+														<?php echo number_format(floatval($menu['menu_price']), 0, ',', '.') . ".000đ"; ?>
 													</span>
 												</div>
 											</div>

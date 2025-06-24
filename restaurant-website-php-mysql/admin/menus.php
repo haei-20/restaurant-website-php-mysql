@@ -511,12 +511,12 @@
                                             ?>
                                         </div>
 
-                                        <!-- MENU PRICE INPUT -->
+                                                                <!-- MENU PRICE INPUT -->
 
-                                        <div class="form-group">
-                                            <label for="menu_price">Giá (nghìn đồng)</label>
-                                            <input type="number" class="form-control" value="<?php echo (isset($_POST['menu_price']))?htmlspecialchars($_POST['menu_price']):'' ?>" placeholder="Ví dụ: 400 = 400.000đ" name="menu_price" min="0" step="1">
-                                        </div>
+                        <div class="form-group">
+                            <label for="menu_price">Giá (nghìn đồng)</label>
+                            <input type="number" class="form-control" value="<?php echo (isset($_POST['menu_price']))?htmlspecialchars($_POST['menu_price']):'' ?>" placeholder="Ví dụ: 50 = 50.000đ" name="menu_price" min="0" step="1">
+                        </div>
 
                                         <!--MENU IMAGE INPUT -->
 
@@ -582,7 +582,7 @@
                 {
                     $menu_name = test_input($_POST['menu_name']);
                     $menu_category = $_POST['menu_category'];
-                    $menu_price = strval(intval(test_input($_POST['menu_price'])) * 1000);
+                    $menu_price = floatval(test_input($_POST['menu_price']));
                     $menu_description = test_input($_POST['menu_description']);
                     $image = rand(0,100000).'_'.$_FILES['menu_image']['name'];
                     move_uploaded_file($_FILES['menu_image']['tmp_name'],"Uploads/images//".$image);
@@ -738,11 +738,11 @@
                                                 ?>
                                             </div>
 
-                                            <!-- MENU PRICE INPUT -->
+                                                                        <!-- MENU PRICE INPUT -->
 
-                                            <div class="form-group">
-                                                <label for="menu_price">Giá thực đơn </label>
-                                                <input type="number" class="form-control" value="<?php echo floatval($menu['menu_price']); ?>" placeholder="Giá thực đơn" name="menu_price" min="0" step="0.01">
+                            <div class="form-group">
+                                <label for="menu_price">Giá (nghìn đồng)</label>
+                                <input type="number" class="form-control" value="<?php echo floatval($menu['menu_price']); ?>" placeholder="Ví dụ: 50 = 50.000đ" name="menu_price" min="0" step="1">
                                                 <?php
                                                     if(isset($_POST['edit_menu_sbmt']))
                                                     {
@@ -822,7 +822,7 @@
                             $menu_id = test_input($_POST['menu_id']);
                             $menu_name = test_input($_POST['menu_name']);
                             $menu_category = $_POST['menu_category'];
-                            $menu_price = strval(intval(test_input($_POST['menu_price'])) * 1000);
+                            $menu_price = floatval(test_input($_POST['menu_price']));
                             $menu_description = test_input($_POST['menu_description']);
 
                             if(empty($_FILES['menu_image']['name']))

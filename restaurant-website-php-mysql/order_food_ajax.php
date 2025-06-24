@@ -181,13 +181,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Nếu đây là món ăn đang được cập nhật, lưu giá tiền của nó
             if ($id == $menuId) {
                 $response['item_price'] = $menuPrice * $response['quantity'];
-                $response['item_price_formatted'] = number_format($response['item_price'], 0, ',', '.') . '000đ';
+                $response['item_price_formatted'] = number_format($response['item_price'], 0, ',', '.') . '.000đ';
             }
         }
     }
     
     $response['total'] = $totalPrice;
-    $response['total_formatted'] = number_format($totalPrice, 0, ',', '.') . '000đ';
+    $response['total_formatted'] = number_format($totalPrice, 0, ',', '.') . '.000đ';
     
     // Trả về kết quả dưới dạng JSON
     echo json_encode($response);

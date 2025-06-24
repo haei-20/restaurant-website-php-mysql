@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 18, 2025 lúc 11:50 AM
+-- Thời gian đã tạo: Th6 24, 2025 lúc 08:53 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -102,7 +102,9 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email
 (86, 'admin', '0342090254', 'dangthiha20012004@gmail.com'),
 (87, 'admin', '0342090254', 'dangthiha20012004@gmail.com'),
 (88, 'admin', '0342090254', 'dangthiha20012004@gmail.com'),
-(89, 'B22DCCN253 - Đặng Thị Hà', '0342090254', 'dangthiha20012004@gmail.com');
+(89, 'B22DCCN253 - Đặng Thị Hà', '0342090254', 'dangthiha20012004@gmail.com'),
+(90, 'khachhang', '0342090254', 'dangthiha20012004@gmail.com'),
+(91, 'admin_user', '0342090254', 'dangthiha20012004@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -220,7 +222,10 @@ INSERT INTO `in_order` (`id`, `order_id`, `menu_id`, `quantity`) VALUES
 (81, 64, 7, 2),
 (82, 65, 2, 2),
 (83, 66, 6, 3),
-(84, 66, 18, 1);
+(84, 66, 18, 1),
+(85, 67, 2, 1),
+(86, 67, 18, 2),
+(87, 68, 18, 2);
 
 -- --------------------------------------------------------
 
@@ -232,7 +237,7 @@ CREATE TABLE `menus` (
   `menu_id` int(5) NOT NULL,
   `menu_name` varchar(100) NOT NULL,
   `menu_description` varchar(255) NOT NULL,
-  `menu_price` decimal(6,2) NOT NULL,
+  `menu_price` decimal(10,2) NOT NULL,
   `menu_image` varchar(255) NOT NULL,
   `category_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -306,9 +311,6 @@ CREATE TABLE `placed_orders` (
 --
 
 INSERT INTO `placed_orders` (`order_id`, `order_time`, `client_id`, `delivery_address`, `delivered`, `delivering`, `delivery_time`, `canceled`, `cancel_time`, `canceled_by`, `cancellation_reason`, `total_amount`) VALUES
-(7, '2020-06-22 12:01:00', 9, 'Bloc A Nr 80000 Hay ElAgadir', 0, 0, NULL, 1, '2025-05-09 13:33:10', NULL, NULL, 0.00),
-(8, '2020-06-23 06:07:00', 10, 'Chengdu, China', 0, 0, NULL, 1, NULL, NULL, '', 0.00),
-(9, '2020-06-24 16:40:00', 11, 'Hay El Houda Agadir', 1, 0, NULL, 0, NULL, NULL, NULL, 0.00),
 (10, '2023-07-01 04:02:00', 16, 'Bloc A', 1, 0, NULL, 0, NULL, NULL, NULL, 0.00),
 (11, '2023-10-30 20:09:00', 18, 'Test testst asds', 1, 0, NULL, 0, NULL, NULL, NULL, 0.00),
 (12, '2023-10-30 21:46:00', 19, 'tests sd', 1, 0, NULL, 0, NULL, NULL, NULL, 0.00),
@@ -362,9 +364,11 @@ INSERT INTO `placed_orders` (`order_id`, `order_time`, `client_id`, `delivery_ad
 (61, '2025-05-23 17:51:52', 84, 'ptit', 0, 0, NULL, 1, '2025-05-23 22:52:32', 'Admin', 'thử nghiệm', 38.00),
 (62, '2025-05-23 17:54:11', 85, 'ptit', 1, 0, '2025-05-23 23:53:18', 0, NULL, NULL, NULL, 55.00),
 (63, '2025-05-23 18:10:18', 86, 'ptit', 0, 0, NULL, 1, '2025-05-23 23:53:27', 'Admin', 'thử nghiệm', 54.00),
-(64, '2025-05-23 18:53:01', 87, 'ptit', 0, 0, NULL, 0, NULL, NULL, NULL, 70.00),
-(65, '2025-05-24 03:27:21', 88, 'ptit', 0, 0, NULL, 0, NULL, NULL, NULL, 60.00),
-(66, '2025-05-24 03:31:26', 89, 'ptit', 0, 0, NULL, 0, NULL, NULL, NULL, 59.60);
+(64, '2025-05-23 18:53:01', 87, 'ptit', 1, 0, '2025-06-25 01:34:55', 0, NULL, NULL, NULL, 70.00),
+(65, '2025-05-24 03:27:21', 88, 'ptit', 1, 0, '2025-06-25 01:52:58', 0, NULL, NULL, NULL, 60.00),
+(66, '2025-05-24 03:31:26', 89, 'ptit', 0, 0, NULL, 0, NULL, NULL, NULL, 59.60),
+(67, '2025-06-18 12:41:31', 90, 'ptit', 1, 0, '2025-06-25 01:34:59', 0, NULL, NULL, NULL, 130.00),
+(68, '2025-06-24 20:52:43', 91, 'ptit', 0, 0, NULL, 0, NULL, NULL, NULL, 100.00);
 
 -- --------------------------------------------------------
 
@@ -406,7 +410,7 @@ CREATE TABLE `website_settings` (
 
 INSERT INTO `website_settings` (`option_id`, `option_name`, `option_value`) VALUES
 (1, 'restaurant_name', 'VINCENT PIZZA'),
-(2, 'restaurant_email', 'vincent.pizza@gmail.com'),
+(2, 'restaurant_email', 'pizzavincent511@gmail.com'),
 (3, 'admin_email', 'admin_email@gmail.com'),
 (4, 'restaurant_phonenumber', '088866777555'),
 (5, 'restaurant_address', 'Me Tri, Nam Tu Liem, Ha Noi');
@@ -477,7 +481,7 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT cho bảng `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT cho bảng `image_gallery`
@@ -489,7 +493,7 @@ ALTER TABLE `image_gallery`
 -- AUTO_INCREMENT cho bảng `in_order`
 --
 ALTER TABLE `in_order`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT cho bảng `menus`
@@ -507,7 +511,7 @@ ALTER TABLE `menu_categories`
 -- AUTO_INCREMENT cho bảng `placed_orders`
 --
 ALTER TABLE `placed_orders`
-  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

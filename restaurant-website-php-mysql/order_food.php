@@ -893,7 +893,7 @@
                                 echo "<div class='item_select_part'>";
                                     echo "<div class='menu_price_field'>";
                                         echo "<span style='font-weight: bold; font-size: 16px; color: #9e8a78;'>";
-                                            echo number_format(intval($row['menu_price']), 0, ',', '.') . ".000đ";
+                                            echo number_format(floatval($row['menu_price']), 0, ',', '.') . ".000đ";
                                         echo "</span>";
                                     echo "</div>";
                                     ?>
